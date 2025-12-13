@@ -3,8 +3,8 @@ import { weddingConfig } from '../config/weddingConfig';
 
 const HeroWrapper = styled.section`
   position: relative;
-  height: 100vh;
-  min-height: 600px;
+  min-height: 100svh; /* Use svh for mobile browser chrome */
+  min-height: 100vh; /* Fallback */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,6 +12,7 @@ const HeroWrapper = styled.section`
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
   overflow: hidden;
+  padding: 2rem 1rem;
 `;
 
 const HeroBackground = styled.div`
@@ -57,44 +58,55 @@ const ImagePlaceholder = styled.div`
 const HeroContent = styled.div`
   position: relative;
   z-index: 1;
-  padding: ${({ theme }) => theme.spacing.xl};
+  padding: ${({ theme }) => theme.spacing.md};
+  max-width: 100%;
 `;
 
 const CoupleName = styled.h1`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: ${({ theme }) => theme.fontSizes['4xl']};
   font-weight: ${({ theme }) => theme.fontWeights.light};
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   color: ${({ theme }) => theme.colors.white};
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: ${({ theme }) => theme.spacing.md};
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  /* Mobile-first: base size */
+  font-size: 2.5rem;
+  line-height: 1.1;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: ${({ theme }) => theme.fontSizes['5xl']};
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 3.5rem;
+    letter-spacing: 0.15em;
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    font-size: ${({ theme }) => theme.fontSizes['6xl']};
+  ${({ theme }) => theme.media.desktop} {
+    font-size: 4.5rem;
   }
 `;
 
 const DateLocation = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.light};
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   opacity: 0.95;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  /* Mobile-first */
+  font-size: 1rem;
+  margin-top: 1rem;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: ${({ theme }) => theme.fontSizes.lg};
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 1.125rem;
+    letter-spacing: 0.2em;
+  }
+
+  ${({ theme }) => theme.media.desktop} {
+    font-size: 1.25rem;
   }
 `;
 
 const ScrollIndicator = styled.div`
   position: absolute;
-  bottom: ${({ theme }) => theme.spacing['2xl']};
+  bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -103,7 +115,12 @@ const ScrollIndicator = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
   opacity: 0.8;
+  /* CSS animation - better performance */
   animation: bounce 2s infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 
   @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {

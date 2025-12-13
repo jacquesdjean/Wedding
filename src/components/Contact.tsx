@@ -4,47 +4,70 @@ import { weddingConfig } from '../config/weddingConfig';
 
 const ContactContent = styled.div`
   text-align: center;
-  max-width: 600px;
+  max-width: 100%;
   margin: 0 auto;
+
+  ${({ theme }) => theme.media.tablet} {
+    max-width: 500px;
+  }
 `;
 
 const SectionTitle = styled.h2`
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: 1rem;
   color: ${({ theme }) => theme.colors.darkCharcoal};
 `;
 
 const Intro = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-size: 1.125rem;
   color: ${({ theme }) => theme.colors.mediumGray};
-  margin-bottom: ${({ theme }) => theme.spacing.xl};
+  margin-bottom: 1.5rem;
   line-height: 1.7;
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 1.25rem;
+  }
 `;
 
 const EmailLink = styled.a`
-  display: inline-block;
-  font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: ${({ theme }) => theme.fontSizes.xl};
-  color: ${({ theme }) => theme.colors.sage};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background-color: ${({ theme }) => theme.colors.sage};
+  color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
-  padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.xl};
-  border: 2px solid ${({ theme }) => theme.colors.sage};
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  transition: all ${({ theme }) => theme.transitions.fast};
-  margin-bottom: ${({ theme }) => theme.spacing.xl};
+  font-size: 1rem;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  min-height: ${({ theme }) => theme.touch.minButton};
+  min-width: 200px;
+  margin-bottom: 1.5rem;
+  -webkit-tap-highlight-color: transparent;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.sage};
-    color: ${({ theme }) => theme.colors.white};
+  &:active {
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.sageDark};
+    }
   }
 `;
 
 const DeclineNote = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.lightGray};
   font-style: italic;
-  max-width: 450px;
+  max-width: 100%;
   margin: 0 auto;
   line-height: 1.6;
+
+  ${({ theme }) => theme.media.tablet} {
+    max-width: 400px;
+  }
 `;
 
 export const Contact: React.FC = () => {

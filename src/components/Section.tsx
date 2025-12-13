@@ -8,7 +8,8 @@ interface SectionProps {
 }
 
 const SectionWrapper = styled.section<{ $background: string }>`
-  padding: ${({ theme }) => theme.spacing['3xl']} ${({ theme }) => theme.spacing.lg};
+  /* Mobile-first: base padding */
+  padding: 3rem 1rem;
   background-color: ${({ theme, $background }) => {
     switch ($background) {
       case 'cream':
@@ -22,18 +23,27 @@ const SectionWrapper = styled.section<{ $background: string }>`
     }
   }};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: ${({ theme }) => theme.spacing['4xl']} ${({ theme }) => theme.spacing['2xl']};
+  ${({ theme }) => theme.media.tablet} {
+    padding: 4rem 2rem;
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    padding: ${({ theme }) => theme.spacing['5xl']} ${({ theme }) => theme.spacing['3xl']};
+  ${({ theme }) => theme.media.desktop} {
+    padding: 6rem 4rem;
   }
 `;
 
 const SectionContent = styled.div<{ $fullWidth: boolean }>`
-  max-width: ${({ theme, $fullWidth }) => ($fullWidth ? 'none' : theme.maxWidth)};
+  /* Mobile-first: full width */
+  max-width: ${({ $fullWidth }) => ($fullWidth ? 'none' : '100%')};
   margin: 0 auto;
+
+  ${({ theme }) => theme.media.tablet} {
+    max-width: ${({ theme, $fullWidth }) => ($fullWidth ? 'none' : theme.maxWidth.tablet)};
+  }
+
+  ${({ theme }) => theme.media.desktop} {
+    max-width: ${({ theme, $fullWidth }) => ($fullWidth ? 'none' : theme.maxWidth.desktop)};
+  }
 `;
 
 export const Section: React.FC<SectionProps> = ({

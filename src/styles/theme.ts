@@ -1,3 +1,5 @@
+import { media, typography, spacing as responsiveSpacing } from './breakpoints';
+
 export const theme = {
   colors: {
     white: '#FFFFFF',
@@ -6,6 +8,7 @@ export const theme = {
     sand: '#E8E0D5',
     warmSand: '#D4C8B8',
     sage: '#9CAF88',
+    sageDark: '#7A9168',
     mutedSage: '#B8C4A8',
     lightSage: '#E8EDE4',
     gold: '#C9A962',
@@ -20,46 +23,50 @@ export const theme = {
   },
   fonts: {
     heading: "'Cormorant Garamond', 'Georgia', serif",
-    body: "'Lato', 'Helvetica Neue', sans-serif",
+    body: "'Inter', 'Helvetica Neue', sans-serif",
   },
+  // Mobile-first font sizes (base values)
   fontSizes: {
-    xs: '0.75rem',
-    sm: '0.875rem',
-    base: '1rem',
-    md: '1.125rem',
-    lg: '1.25rem',
-    xl: '1.5rem',
-    '2xl': '2rem',
-    '3xl': '2.5rem',
-    '4xl': '3rem',
-    '5xl': '4rem',
-    '6xl': '5rem',
+    xs: '0.75rem',     // 12px
+    sm: '0.875rem',    // 14px - minimum readable
+    base: '1rem',      // 16px - never smaller for body
+    md: '1.125rem',    // 18px
+    lg: '1.25rem',     // 20px
+    xl: '1.5rem',      // 24px
+    '2xl': '2rem',     // 32px
+    '3xl': '2.5rem',   // 40px
+    '4xl': '3rem',     // 48px
+    '5xl': '3.5rem',   // 56px
   },
+  // Responsive typography (mobile-first)
+  typography,
   fontWeights: {
     light: 300,
     normal: 400,
     medium: 500,
     semibold: 600,
-    bold: 700,
   },
+  // Mobile-first spacing
   spacing: {
-    xs: '0.25rem',
-    sm: '0.5rem',
-    md: '1rem',
-    lg: '1.5rem',
-    xl: '2rem',
-    '2xl': '3rem',
-    '3xl': '4rem',
-    '4xl': '6rem',
-    '5xl': '8rem',
+    xs: '0.25rem',   // 4px
+    sm: '0.5rem',    // 8px
+    md: '1rem',      // 16px
+    lg: '1.5rem',    // 24px
+    xl: '2rem',      // 32px
+    '2xl': '3rem',   // 48px
+    '3xl': '4rem',   // 64px
+    '4xl': '6rem',   // 96px
   },
-  breakpoints: {
-    mobile: '480px',
-    tablet: '768px',
-    desktop: '1024px',
+  // Responsive spacing
+  responsiveSpacing,
+  // Media query helpers
+  media,
+  maxWidth: {
+    mobile: '100%',
+    tablet: '720px',
+    desktop: '960px',
     wide: '1200px',
   },
-  maxWidth: '1200px',
   borderRadius: {
     sm: '4px',
     md: '8px',
@@ -68,14 +75,19 @@ export const theme = {
   },
   shadows: {
     sm: '0 1px 2px rgba(0, 0, 0, 0.05)',
-    md: '0 4px 6px rgba(0, 0, 0, 0.07)',
+    md: '0 2px 8px rgba(0, 0, 0, 0.08)',
     lg: '0 10px 15px rgba(0, 0, 0, 0.1)',
     xl: '0 20px 25px rgba(0, 0, 0, 0.15)',
   },
   transitions: {
     fast: '150ms ease',
-    normal: '300ms ease',
-    slow: '500ms ease',
+    normal: '200ms ease',
+    slow: '300ms ease',
+  },
+  // Touch-friendly minimum sizes
+  touch: {
+    minTarget: '44px',
+    minButton: '48px',
   },
 };
 

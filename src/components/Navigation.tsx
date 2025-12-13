@@ -3,24 +3,29 @@ import styled from 'styled-components';
 import { weddingConfig } from '../config/weddingConfig';
 
 const Nav = styled.nav<{ $scrolled: boolean; $menuOpen: boolean }>`
-  position: fixed;
+  /* Mobile: not sticky to save screen real estate */
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.lg};
-  background-color: ${({ $scrolled, $menuOpen, theme }) =>
-    $scrolled || $menuOpen ? theme.colors.white : 'transparent'};
-  box-shadow: ${({ $scrolled, theme }) => ($scrolled ? theme.shadows.md : 'none')};
+  padding: 1rem;
+  background-color: ${({ $menuOpen, theme }) =>
+    $menuOpen ? theme.colors.white : 'transparent'};
   transition: all ${({ theme }) => theme.transitions.normal};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: ${({ theme }) => theme.spacing.lg} ${({ theme }) => theme.spacing['2xl']};
+  ${({ theme }) => theme.media.tablet} {
+    /* Tablet+: sticky nav */
+    position: fixed;
+    padding: 1rem 2rem;
+    background-color: ${({ $scrolled, $menuOpen, theme }) =>
+      $scrolled || $menuOpen ? theme.colors.white : 'transparent'};
+    box-shadow: ${({ $scrolled, theme }) => ($scrolled ? theme.shadows.md : 'none')};
   }
 `;
 
 const NavContent = styled.div`
-  max-width: ${({ theme }) => theme.maxWidth};
+  max-width: ${({ theme }) => theme.maxWidth.wide};
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -29,7 +34,7 @@ const NavContent = styled.div`
 
 const Logo = styled.a<{ $scrolled: boolean }>`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: ${({ theme }) => theme.fontSizes.xl};
+  font-size: 1.25rem;
   font-weight: ${({ theme }) => theme.fontWeights.light};
   letter-spacing: 0.1em;
   color: ${({ $scrolled, theme }) =>
@@ -37,38 +42,57 @@ const Logo = styled.a<{ $scrolled: boolean }>`
   text-decoration: none;
   transition: color ${({ theme }) => theme.transitions.fast};
   text-shadow: ${({ $scrolled }) => ($scrolled ? 'none' : '0 1px 10px rgba(0, 0, 0, 0.3)')};
+  -webkit-tap-highlight-color: transparent;
+  /* Minimum touch target */
+  min-height: ${({ theme }) => theme.touch.minTarget};
+  display: flex;
+  align-items: center;
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.gold};
+  &:active {
+    opacity: 0.8;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.gold};
+    }
+  }
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 1.5rem;
   }
 `;
 
+/* Mobile: horizontal scrolling nav links */
 const NavLinks = styled.ul<{ $menuOpen: boolean; $scrolled: boolean }>`
-  display: none;
-  gap: ${({ theme }) => theme.spacing.xl};
+  /* Mobile: hidden by default, show as dropdown */
+  display: ${({ $menuOpen }) => ($menuOpen ? 'flex' : 'none')};
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: ${({ theme }) => theme.colors.white};
+  padding: 1rem;
+  box-shadow: ${({ theme }) => theme.shadows.lg};
+  gap: 0;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  ${({ theme }) => theme.media.tablet} {
+    /* Tablet+: horizontal nav */
     display: flex;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    display: ${({ $menuOpen }) => ($menuOpen ? 'flex' : 'none')};
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: ${({ theme }) => theme.colors.white};
-    padding: ${({ theme }) => theme.spacing.lg};
-    box-shadow: ${({ theme }) => theme.shadows.lg};
-    gap: ${({ theme }) => theme.spacing.md};
+    flex-direction: row;
+    position: static;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    gap: 1.5rem;
   }
 `;
 
 const NavLink = styled.a<{ $scrolled: boolean; $inMenu?: boolean }>`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-  font-weight: ${({ theme }) => theme.fontWeights.normal};
+  font-size: 0.875rem;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: ${({ $scrolled, $inMenu, theme }) =>
@@ -77,22 +101,47 @@ const NavLink = styled.a<{ $scrolled: boolean; $inMenu?: boolean }>`
   transition: color ${({ theme }) => theme.transitions.fast};
   text-shadow: ${({ $scrolled, $inMenu }) =>
     $scrolled || $inMenu ? 'none' : '0 1px 10px rgba(0, 0, 0, 0.3)'};
+  -webkit-tap-highlight-color: transparent;
+  /* Minimum touch target for mobile */
+  min-height: ${({ theme }) => theme.touch.minTarget};
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.gold};
+  &:active {
+    opacity: 0.8;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.gold};
+    }
+  }
+
+  ${({ theme }) => theme.media.tablet} {
+    padding: 0.5rem 0;
   }
 `;
 
 const MenuButton = styled.button<{ $scrolled: boolean }>`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
-  padding: ${({ theme }) => theme.spacing.sm};
+  padding: 0.75rem;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  /* Minimum touch target */
+  min-width: ${({ theme }) => theme.touch.minTarget};
+  min-height: ${({ theme }) => theme.touch.minTarget};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  &:active {
+    opacity: 0.8;
+  }
+
+  ${({ theme }) => theme.media.tablet} {
     display: none;
   }
 
@@ -124,7 +173,7 @@ export const Navigation: React.FC = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -138,7 +187,12 @@ export const Navigation: React.FC = () => {
         <Logo href="#home" $scrolled={scrolled || menuOpen}>
           {weddingConfig.couple.name}
         </Logo>
-        <MenuButton $scrolled={scrolled || menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+        <MenuButton
+          $scrolled={scrolled || menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+        >
           <span />
           <span />
           <span />

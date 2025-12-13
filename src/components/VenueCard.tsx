@@ -14,21 +14,24 @@ interface VenueCardProps {
 }
 
 const Card = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: ${({ theme }) => theme.spacing.xl};
+  /* Mobile-first: stacked layout */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.md};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    grid-template-columns: 1fr 1fr;
+  ${({ theme }) => theme.media.tablet} {
+    flex-direction: row;
   }
 `;
 
 const ImageContainer = styled.div`
-  aspect-ratio: 4 / 3;
+  /* Mobile-first */
+  width: 100%;
+  aspect-ratio: 16 / 9;
   background: linear-gradient(
     135deg,
     ${({ theme }) => theme.colors.sand} 0%,
@@ -41,69 +44,117 @@ const ImageContainer = styled.div`
   color: ${({ theme }) => theme.colors.mediumGray};
   letter-spacing: 0.1em;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    aspect-ratio: auto;
-    min-height: 300px;
+  ${({ theme }) => theme.media.tablet} {
+    width: 40%;
+    aspect-ratio: 4 / 3;
+    flex-shrink: 0;
   }
 `;
 
 const Content = styled.div`
-  padding: ${({ theme }) => theme.spacing.xl};
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1;
+
+  ${({ theme }) => theme.media.tablet} {
+    padding: 2rem;
+  }
 `;
 
 const VenueName = styled.h3`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: ${({ theme }) => theme.fontSizes['2xl']};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
   color: ${({ theme }) => theme.colors.darkCharcoal};
-  margin-bottom: ${({ theme }) => theme.spacing.md};
+  margin-bottom: 0.5rem;
+  /* Mobile-first */
+  font-size: 1.25rem;
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
 `;
 
 const Description = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.base};
+  font-size: 1rem;
   color: ${({ theme }) => theme.colors.mediumGray};
   line-height: 1.7;
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: 0.75rem;
 `;
 
 const Details = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.sm};
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 const DetailItem = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.charcoal};
   margin: 0;
 
   a {
     color: ${({ theme }) => theme.colors.sage};
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 
+    &:active {
+      opacity: 0.8;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: ${({ theme }) => theme.colors.gold};
+      }
+    }
+  }
+`;
+
+const PhoneLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: ${({ theme }) => theme.colors.sage};
+  color: ${({ theme }) => theme.colors.white};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  min-height: ${({ theme }) => theme.touch.minTarget};
+  -webkit-tap-highlight-color: transparent;
+  margin-top: 0.5rem;
+  width: fit-content;
+
+  &:active {
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+
+  @media (hover: hover) {
     &:hover {
-      color: ${({ theme }) => theme.colors.gold};
+      background-color: ${({ theme }) => theme.colors.sageDark};
     }
   }
 `;
 
 const NotesList = styled.ul`
   background-color: ${({ theme }) => theme.colors.lightSage};
-  padding: ${({ theme }) => theme.spacing.md};
+  padding: 1rem;
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  margin-top: ${({ theme }) => theme.spacing.md};
+  margin-top: 0.75rem;
 `;
 
 const NoteItem = styled.li`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.charcoal};
-  padding-left: ${({ theme }) => theme.spacing.md};
+  padding-left: 1rem;
   position: relative;
-  margin-bottom: ${({ theme }) => theme.spacing.xs};
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
 
   &:last-child {
     margin-bottom: 0;
@@ -118,20 +169,20 @@ const NoteItem = styled.li`
 `;
 
 const RoomBlockNote = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.gold};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   background-color: ${({ theme }) => theme.colors.lightGold};
-  padding: ${({ theme }) => theme.spacing.md};
+  padding: 1rem;
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  margin-top: ${({ theme }) => theme.spacing.md};
+  margin-top: 0.75rem;
 `;
 
 const AdditionalNote = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.mediumGray};
   font-style: italic;
-  margin-top: ${({ theme }) => theme.spacing.md};
+  margin-top: 0.75rem;
 `;
 
 export const VenueCard: React.FC<VenueCardProps> = ({
@@ -152,7 +203,7 @@ export const VenueCard: React.FC<VenueCardProps> = ({
       <Content>
         <VenueName>{name}</VenueName>
         <Description>{description}</Description>
-        {(address || phone || website) && (
+        {(address || website) && (
           <Details>
             {address && (
               <DetailItem>
@@ -165,7 +216,6 @@ export const VenueCard: React.FC<VenueCardProps> = ({
                 )}
               </DetailItem>
             )}
-            {phone && <DetailItem>{phone}</DetailItem>}
             {website && (
               <DetailItem>
                 <a href={website} target="_blank" rel="noopener noreferrer">
@@ -174,6 +224,11 @@ export const VenueCard: React.FC<VenueCardProps> = ({
               </DetailItem>
             )}
           </Details>
+        )}
+        {phone && (
+          <PhoneLink href={`tel:${phone.replace(/[^0-9+]/g, '')}`}>
+            Call {phone}
+          </PhoneLink>
         )}
         {notes && notes.length > 0 && (
           <NotesList>
