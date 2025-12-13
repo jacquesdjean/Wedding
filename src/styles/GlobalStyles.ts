@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Lato:wght@300;400;700&display=swap');
-
   *,
   *::before,
   *::after {
@@ -15,8 +13,8 @@ export const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
     font-size: 16px;
 
-    @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-      font-size: 18px;
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
     }
   }
 
@@ -28,6 +26,10 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Safe area padding for notched devices */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -37,43 +39,53 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.darkCharcoal};
   }
 
+  /* Mobile-first typography - base styles are mobile */
   h1 {
-    font-size: ${({ theme }) => theme.fontSizes['4xl']};
+    font-size: ${({ theme }) => theme.typography.h1.mobile};
 
-    @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      font-size: ${({ theme }) => theme.fontSizes['5xl']};
+    ${({ theme }) => theme.media.tablet} {
+      font-size: ${({ theme }) => theme.typography.h1.tablet};
     }
 
-    @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-      font-size: ${({ theme }) => theme.fontSizes['6xl']};
+    ${({ theme }) => theme.media.desktop} {
+      font-size: ${({ theme }) => theme.typography.h1.desktop};
     }
   }
 
   h2 {
-    font-size: ${({ theme }) => theme.fontSizes['2xl']};
+    font-size: ${({ theme }) => theme.typography.h2.mobile};
 
-    @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      font-size: ${({ theme }) => theme.fontSizes['3xl']};
+    ${({ theme }) => theme.media.tablet} {
+      font-size: ${({ theme }) => theme.typography.h2.tablet};
     }
 
-    @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-      font-size: ${({ theme }) => theme.fontSizes['4xl']};
+    ${({ theme }) => theme.media.desktop} {
+      font-size: ${({ theme }) => theme.typography.h2.desktop};
     }
   }
 
   h3 {
-    font-size: ${({ theme }) => theme.fontSizes.xl};
+    font-size: ${({ theme }) => theme.typography.h3.mobile};
 
-    @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      font-size: ${({ theme }) => theme.fontSizes['2xl']};
+    ${({ theme }) => theme.media.tablet} {
+      font-size: ${({ theme }) => theme.typography.h3.tablet};
+    }
+
+    ${({ theme }) => theme.media.desktop} {
+      font-size: ${({ theme }) => theme.typography.h3.desktop};
     }
   }
 
   p {
+    font-size: ${({ theme }) => theme.typography.body.mobile};
     margin-bottom: ${({ theme }) => theme.spacing.md};
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    ${({ theme }) => theme.media.desktop} {
+      font-size: ${({ theme }) => theme.typography.body.desktop};
     }
   }
 
@@ -81,9 +93,18 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.sage};
     text-decoration: none;
     transition: color ${({ theme }) => theme.transitions.fast};
+    /* Remove tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.gold};
+    &:active {
+      color: ${({ theme }) => theme.colors.sageDark};
+    }
+
+    /* Only apply hover on devices that support it */
+    @media (hover: hover) {
+      &:hover {
+        color: ${({ theme }) => theme.colors.gold};
+      }
     }
   }
 
@@ -96,14 +117,37 @@ export const GlobalStyles = createGlobalStyle`
   button {
     font-family: inherit;
     cursor: pointer;
+    /* Remove tap highlight */
+    -webkit-tap-highlight-color: transparent;
+    /* Minimum touch target */
+    min-height: ${({ theme }) => theme.touch.minTarget};
   }
 
   ul, ol {
     list-style: none;
   }
 
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.sage};
+    outline-offset: 2px;
+  }
+
   ::selection {
     background-color: ${({ theme }) => theme.colors.lightSage};
     color: ${({ theme }) => theme.colors.darkCharcoal};
+  }
+
+  /* Utility class for visually hidden but accessible text */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 `;

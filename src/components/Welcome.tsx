@@ -4,37 +4,51 @@ import { weddingConfig } from '../config/weddingConfig';
 
 const WelcomeContent = styled.div`
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto ${({ theme }) => theme.spacing['3xl']};
+  /* Mobile-first: full width */
+  max-width: 100%;
+  margin: 0 auto 2rem;
+
+  ${({ theme }) => theme.media.tablet} {
+    max-width: 700px;
+    margin-bottom: 3rem;
+  }
 `;
 
 const SectionTitle = styled.h2`
-  margin-bottom: ${({ theme }) => theme.spacing.xl};
+  margin-bottom: 1rem;
   color: ${({ theme }) => theme.colors.darkCharcoal};
+
+  ${({ theme }) => theme.media.tablet} {
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const WelcomeText = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  /* Mobile-first: base size */
+  font-size: 1rem;
   line-height: 1.8;
   color: ${({ theme }) => theme.colors.mediumGray};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: ${({ theme }) => theme.fontSizes.lg};
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 1.125rem;
   }
 `;
 
 const Gallery = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: ${({ theme }) => theme.spacing.lg};
+  /* Mobile-first: single column */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  ${({ theme }) => theme.media.tablet} {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 `;
 
 const GalleryImage = styled.div`
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   background: linear-gradient(
     135deg,
     ${({ theme }) => theme.colors.sand} 0%,
@@ -48,10 +62,9 @@ const GalleryImage = styled.div`
   color: ${({ theme }) => theme.colors.mediumGray};
   letter-spacing: 0.1em;
   overflow: hidden;
-  transition: transform ${({ theme }) => theme.transitions.normal};
 
-  &:hover {
-    transform: scale(1.02);
+  ${({ theme }) => theme.media.tablet} {
+    aspect-ratio: 4 / 3;
   }
 `;
 

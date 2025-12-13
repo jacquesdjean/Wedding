@@ -5,20 +5,28 @@ import { weddingConfig } from '../config/weddingConfig';
 
 const ScheduleHeader = styled.div`
   text-align: center;
-  margin-bottom: ${({ theme }) => theme.spacing['3xl']};
+  margin-bottom: 2rem;
+
+  ${({ theme }) => theme.media.tablet} {
+    margin-bottom: 3rem;
+  }
 `;
 
 const SectionTitle = styled.h2`
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: 1rem;
   color: ${({ theme }) => theme.colors.darkCharcoal};
 `;
 
 const ScheduleNote = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: 1rem;
   color: ${({ theme }) => theme.colors.mediumGray};
   font-style: italic;
-  max-width: 500px;
+  max-width: 100%;
   margin: 0 auto;
+
+  ${({ theme }) => theme.media.tablet} {
+    max-width: 500px;
+  }
 `;
 
 export const Schedule: React.FC = () => {

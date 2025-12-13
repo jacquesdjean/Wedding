@@ -3,7 +3,7 @@ import { weddingConfig } from '../config/weddingConfig';
 
 const FooterWrapper = styled.footer`
   position: relative;
-  min-height: 60vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,6 +11,12 @@ const FooterWrapper = styled.footer`
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
   overflow: hidden;
+  /* Safe area padding for notched devices */
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+
+  ${({ theme }) => theme.media.tablet} {
+    min-height: 60vh;
+  }
 `;
 
 const FooterBackground = styled.div`
@@ -56,30 +62,43 @@ const ImagePlaceholder = styled.div`
 const FooterContent = styled.div`
   position: relative;
   z-index: 1;
-  padding: ${({ theme }) => theme.spacing['3xl']};
+  padding: 2rem 1rem;
+
+  ${({ theme }) => theme.media.tablet} {
+    padding: 3rem;
+  }
 `;
 
 const ClosingText = styled.p`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: ${({ theme }) => theme.fontSizes['2xl']};
   font-weight: ${({ theme }) => theme.fontWeights.light};
   letter-spacing: 0.1em;
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: 1rem;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  /* Mobile-first */
+  font-size: 1.5rem;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: ${({ theme }) => theme.fontSizes['3xl']};
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 2rem;
+  }
+
+  ${({ theme }) => theme.media.desktop} {
+    font-size: 2.5rem;
   }
 `;
 
 const DateText = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.light};
   letter-spacing: 0.15em;
   text-transform: uppercase;
   opacity: 0.9;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 1.125rem;
+  }
 `;
 
 export const Footer: React.FC = () => {

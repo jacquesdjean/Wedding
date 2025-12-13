@@ -6,32 +6,43 @@ import { weddingConfig } from '../config/weddingConfig';
 
 const SectionTitle = styled.h2`
   text-align: center;
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: 1.5rem;
   color: ${({ theme }) => theme.colors.darkCharcoal};
 `;
 
 const Subtitle = styled.h3`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: ${({ theme }) => theme.fontSizes.xl};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
   color: ${({ theme }) => theme.colors.darkCharcoal};
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
-  margin-top: ${({ theme }) => theme.spacing['2xl']};
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  font-size: 1.25rem;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 1.5rem;
+  }
 `;
 
 const AirportsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: ${({ theme }) => theme.spacing.lg};
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  /* Mobile-first: stacked */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  ${({ theme }) => theme.media.tablet} {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 `;
 
 const Note = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.mediumGray};
   font-style: italic;
   text-align: center;
@@ -40,40 +51,53 @@ const Note = styled.p`
 const ShuttleSection = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
-  padding: ${({ theme }) => theme.spacing.xl};
-  margin-top: ${({ theme }) => theme.spacing['2xl']};
+  padding: 1.5rem;
+  margin-top: 2rem;
   text-align: center;
+
+  ${({ theme }) => theme.media.tablet} {
+    padding: 2rem;
+  }
 `;
 
 const ShuttleTitle = styled.h4`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: ${({ theme }) => theme.fontSizes.xl};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
   color: ${({ theme }) => theme.colors.darkCharcoal};
-  margin-bottom: ${({ theme }) => theme.spacing.md};
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 1.5rem;
+  }
 `;
 
 const ShuttleInfo = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.base};
+  font-size: 1rem;
   color: ${({ theme }) => theme.colors.mediumGray};
-  margin-bottom: ${({ theme }) => theme.spacing.md};
+  margin-bottom: 1rem;
 `;
 
 const ShuttleSchedule = styled.div`
   display: flex;
-  justify-content: center;
-  gap: ${({ theme }) => theme.spacing.xl};
-  flex-wrap: wrap;
-  margin-bottom: ${({ theme }) => theme.spacing.md};
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  ${({ theme }) => theme.media.tablet} {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
 `;
 
 const ScheduleItem = styled.span`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.charcoal};
 `;
 
 const ShuttleNote = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.sage};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
 `;

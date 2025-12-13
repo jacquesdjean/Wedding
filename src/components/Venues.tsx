@@ -5,26 +5,40 @@ import { weddingConfig } from '../config/weddingConfig';
 
 const SectionTitle = styled.h2`
   text-align: center;
-  margin-bottom: ${({ theme }) => theme.spacing['3xl']};
+  margin-bottom: 2rem;
   color: ${({ theme }) => theme.colors.darkCharcoal};
+
+  ${({ theme }) => theme.media.tablet} {
+    margin-bottom: 3rem;
+  }
 `;
 
 const VenuesGrid = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing['2xl']};
+  gap: 1.5rem;
+
+  ${({ theme }) => theme.media.tablet} {
+    gap: 2rem;
+  }
 `;
 
 const PhotoNote = styled.p`
   text-align: center;
-  font-size: ${({ theme }) => theme.fontSizes.base};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.mediumGray};
   font-style: italic;
-  max-width: 600px;
-  margin: ${({ theme }) => theme.spacing['2xl']} auto 0;
-  padding: ${({ theme }) => theme.spacing.lg};
+  max-width: 100%;
+  margin: 2rem auto 0;
+  padding: 1rem;
   background-color: ${({ theme }) => theme.colors.cream};
   border-radius: ${({ theme }) => theme.borderRadius.md};
+
+  ${({ theme }) => theme.media.tablet} {
+    max-width: 600px;
+    font-size: 1rem;
+    padding: 1.5rem;
+  }
 `;
 
 export const Venues: React.FC = () => {

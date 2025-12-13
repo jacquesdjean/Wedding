@@ -14,20 +14,24 @@ interface LodgingCardProps {
 const Card = styled.div<{ $isPrimary: boolean }>`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
-  padding: ${({ theme }) => theme.spacing.xl};
+  padding: 1.5rem;
   border: ${({ $isPrimary, theme }) =>
     $isPrimary ? `2px solid ${theme.colors.gold}` : `1px solid ${theme.colors.sand}`};
   position: relative;
+
+  ${({ theme }) => theme.media.tablet} {
+    padding: 2rem;
+  }
 `;
 
 const PrimaryBadge = styled.span`
   position: absolute;
   top: -12px;
-  left: ${({ theme }) => theme.spacing.lg};
+  left: 1.5rem;
   background-color: ${({ theme }) => theme.colors.gold};
   color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.fontSizes.xs};
-  padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.md};
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -36,58 +40,96 @@ const PrimaryBadge = styled.span`
 
 const LodgingName = styled.h4`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: ${({ theme }) => theme.fontSizes.xl};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
   color: ${({ theme }) => theme.colors.darkCharcoal};
-  margin-bottom: ${({ theme }) => theme.spacing.sm};
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 1.5rem;
+  }
 `;
 
 const LodgingType = styled.span`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.mediumGray};
   display: block;
-  margin-bottom: ${({ theme }) => theme.spacing.md};
+  margin-bottom: 1rem;
 `;
 
 const RoomBlockNote = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.gold};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   background-color: ${({ theme }) => theme.colors.lightGold};
-  padding: ${({ theme }) => theme.spacing.md};
+  padding: 1rem;
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  margin-bottom: ${({ theme }) => theme.spacing.md};
+  margin-bottom: 1rem;
+`;
+
+const PhoneLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: ${({ theme }) => theme.colors.sage};
+  color: ${({ theme }) => theme.colors.white};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  min-height: ${({ theme }) => theme.touch.minButton};
+  -webkit-tap-highlight-color: transparent;
+  margin-top: 0.5rem;
+
+  &:active {
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.sageDark};
+    }
+  }
 `;
 
 const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.xs};
+  gap: 0.5rem;
 `;
 
 const ContactItem = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.charcoal};
   margin: 0;
 
   a {
     color: ${({ theme }) => theme.colors.sage};
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.gold};
+    &:active {
+      opacity: 0.8;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: ${({ theme }) => theme.colors.gold};
+      }
     }
   }
 `;
 
 const WalkableBadge = styled.span`
   display: inline-block;
-  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-size: 0.75rem;
   color: ${({ theme }) => theme.colors.sage};
   background-color: ${({ theme }) => theme.colors.lightSage};
-  padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.sm};
+  padding: 0.25rem 0.5rem;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
-  margin-top: ${({ theme }) => theme.spacing.md};
+  margin-top: 1rem;
 `;
 
 export const LodgingCard: React.FC<LodgingCardProps> = ({
@@ -105,16 +147,18 @@ export const LodgingCard: React.FC<LodgingCardProps> = ({
       <LodgingName>{name}</LodgingName>
       {type && <LodgingType>{type}</LodgingType>}
       {roomBlockNote && <RoomBlockNote>{roomBlockNote}</RoomBlockNote>}
-      {(phone || website) && (
+      {phone && (
+        <PhoneLink href={`tel:${phone.replace(/[^0-9+]/g, '')}`}>
+          Call {phone}
+        </PhoneLink>
+      )}
+      {website && (
         <ContactInfo>
-          {phone && <ContactItem>Call: {phone}</ContactItem>}
-          {website && (
-            <ContactItem>
-              <a href={website} target="_blank" rel="noopener noreferrer">
-                Visit Website
-              </a>
-            </ContactItem>
-          )}
+          <ContactItem>
+            <a href={website} target="_blank" rel="noopener noreferrer">
+              Visit Website
+            </a>
+          </ContactItem>
         </ContactInfo>
       )}
       {walkable && <WalkableBadge>Walking distance to venues</WalkableBadge>}
