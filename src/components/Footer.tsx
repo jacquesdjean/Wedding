@@ -1,0 +1,97 @@
+import styled from 'styled-components';
+import { weddingConfig } from '../config/weddingConfig';
+
+const FooterWrapper = styled.footer`
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.white};
+  overflow: hidden;
+`;
+
+const FooterBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    ${({ theme }) => theme.colors.warmSand},
+    ${({ theme }) => theme.colors.sand}
+  );
+  z-index: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: ${({ theme }) => theme.colors.overlay};
+  }
+`;
+
+const ImagePlaceholder = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  color: ${({ theme }) => theme.colors.lightGray};
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+`;
+
+const FooterContent = styled.div`
+  position: relative;
+  z-index: 1;
+  padding: ${({ theme }) => theme.spacing['3xl']};
+`;
+
+const ClosingText = styled.p`
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: ${({ theme }) => theme.fontSizes['2xl']};
+  font-weight: ${({ theme }) => theme.fontWeights.light};
+  letter-spacing: 0.1em;
+  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: ${({ theme }) => theme.fontSizes['3xl']};
+  }
+`;
+
+const DateText = styled.p`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.light};
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+`;
+
+export const Footer: React.FC = () => {
+  return (
+    <FooterWrapper>
+      <FooterBackground>
+        <ImagePlaceholder>[{weddingConfig.images.closing}]</ImagePlaceholder>
+      </FooterBackground>
+      <FooterContent>
+        <ClosingText>{weddingConfig.copy.closing}</ClosingText>
+        <DateText>{weddingConfig.date.short}</DateText>
+      </FooterContent>
+    </FooterWrapper>
+  );
+};
