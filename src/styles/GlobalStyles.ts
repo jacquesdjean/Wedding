@@ -36,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.body};
     font-weight: ${({ theme }) => theme.fontWeights.normal};
     color: ${({ theme }) => theme.colors.charcoal};
-    background-color: ${({ theme }) => theme.colors.cream};
+    background-color: ${({ theme }) => theme.colors.navy};
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

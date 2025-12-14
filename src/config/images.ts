@@ -7,11 +7,19 @@ export const weddingImages = {
   // Hero section background
   hero: `${IMAGE_BASE_PATH}/png_1.png`,
 
-  // Town/destination photos
+  // Town/destination photos (sliding banner)
   town: [
-    `${IMAGE_BASE_PATH}/png_2.png`,
-    `${IMAGE_BASE_PATH}/png_3.png`,
-    `${IMAGE_BASE_PATH}/png_4.png`,
+    `${IMAGE_BASE_PATH}/png_10.png`,
+    `${IMAGE_BASE_PATH}/png_11.png`,
+    `${IMAGE_BASE_PATH}/png_12.png`,
+    `${IMAGE_BASE_PATH}/png_13.png`,
+    `${IMAGE_BASE_PATH}/png_14.png`,
+    `${IMAGE_BASE_PATH}/png_15.png`,
+    `${IMAGE_BASE_PATH}/png_16.png`,
+    `${IMAGE_BASE_PATH}/png_17.png`,
+    `${IMAGE_BASE_PATH}/png_18.png`,
+    `${IMAGE_BASE_PATH}/png_19.png`,
+    `${IMAGE_BASE_PATH}/png_20.png`,
   ],
 
   // Venue photos
