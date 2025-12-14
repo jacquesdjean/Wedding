@@ -36,8 +36,10 @@ const AirportsGrid = styled.div`
 
   ${({ theme }) => theme.media.tablet} {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto 1rem;
   }
 `;
 
@@ -122,11 +124,11 @@ export const Travel: React.FC = () => {
           />
         ))}
       </AirportsGrid>
-      <Note>Rental cars available at all airports. We recommend flying into Tallahassee or Panama City.</Note>
+      <Note>Rental cars available at both airports. We recommend flying into Panama City (ECP). Tallahassee is also an option but not as convenient.</Note>
 
       <ShuttleSection>
         <ShuttleTitle>Shuttle Service</ShuttleTitle>
-        <ShuttleInfo>We're arranging shuttles from the airport for guests without cars.</ShuttleInfo>
+        <ShuttleInfo>We're arranging shuttles from ECP (Panama City) to the Gibson Inn for guests without cars.</ShuttleInfo>
         <ShuttleSchedule>
           <ScheduleItem>Friday: {shuttles.schedule.friday} shuttles</ScheduleItem>
           <ScheduleItem>Saturday: {shuttles.schedule.saturday} shuttle</ScheduleItem>
