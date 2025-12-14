@@ -33,12 +33,13 @@ export const weddingConfig = {
       note: "Reception immediately following ceremony — no need to travel",
       image: "png_6",
     },
-    welcomeAndBrunch: {
+    hub: {
       name: "Gibson Inn",
+      role: "Welcome Party & Farewell Brunch",
       address: "51 Avenue C, Apalachicola, FL 32320",
       phone: "(850) 653-2191",
       website: "https://www.gibsoninn.com",
-      description: "A beautifully restored Victorian inn in the heart of Apalachicola",
+      description: "A beautifully restored Victorian inn in the heart of Apalachicola — the hub for our weekend together",
       mapLink: "https://maps.google.com/?q=Gibson+Inn+Apalachicola+FL",
       image: "png_7",
       roomBlockNote: "Mention Jean-Vosko Wedding when booking. Room block on 2nd floor.",
@@ -47,21 +48,48 @@ export const weddingConfig = {
   schedule: [
     {
       day: "Friday, September 25",
+      theme: "Arrival & Welcome",
       events: [
-        { name: "Welcome Reception", time: "6:00 PM", location: "Gibson Inn" },
+        {
+          name: "Welcome Reception",
+          time: "6:00 PM",
+          location: "Gibson Inn",
+          description: "Join us for drinks and oysters as we kick off the weekend",
+          attire: "Casual",
+        },
       ],
     },
     {
       day: "Saturday, September 26",
+      theme: "The Wedding",
+      isMainDay: true,
       events: [
-        { name: "Ceremony", time: "TBD", location: "Trinity Episcopal Church" },
-        { name: "Reception", time: "Immediately following", location: "Benedict Hall" },
+        {
+          name: "Ceremony",
+          time: "TBD",
+          location: "Trinity Episcopal Church",
+          description: "The main event",
+          attire: "Semi-formal / cocktail",
+        },
+        {
+          name: "Reception",
+          time: "Immediately following",
+          location: "Benedict Hall",
+          description: "Dinner, dancing, and celebration",
+        },
       ],
     },
     {
       day: "Sunday, September 27",
+      theme: "Farewell",
       events: [
-        { name: "Farewell Brunch", time: "Morning", location: "Gibson Inn" },
+        {
+          name: "Farewell Brunch",
+          time: "Morning",
+          location: "Gibson Inn",
+          description: "One last gathering before heading home",
+          attire: "Casual",
+        },
       ],
     },
   ],
@@ -106,6 +134,21 @@ export const weddingConfig = {
       { name: "Vrbo / Airbnb", type: "Vacation Rentals" },
     ],
     allLodgingLink: "https://www.google.com/maps/search/hotels+apalachicola+fl",
+  },
+  destination: {
+    intro: "Apalachicola is a quiet oyster town on Florida's Forgotten Coast — unhurried, beautiful, and full of character.",
+    highlights: [
+      "Famous for its oysters — 90% of Florida's oysters come from here",
+      "Historic downtown with Victorian architecture",
+      "Small-town pace, big coastal charm",
+      "September weather: warm days, cool evenings",
+    ],
+    thingsToDo: [
+      { name: "Oyster tasting", description: "Try them at Up the Creek or Owl Cafe" },
+      { name: "Historic walking tour", description: "Self-guided through downtown" },
+      { name: "St. George Island", description: "Beautiful beaches, 20 minutes away" },
+      { name: "Boat tour", description: "See the bay and local wildlife" },
+    ],
   },
   contact: {
     email: "info@jeanvosko.wedding",

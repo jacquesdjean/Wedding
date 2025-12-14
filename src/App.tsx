@@ -9,6 +9,7 @@ import {
   Venues,
   Travel,
   Lodging,
+  Destination,
   Contact,
   Footer,
 } from './components';
@@ -25,6 +26,7 @@ function App() {
         <Venues />
         <Travel />
         <Lodging />
+        <Destination />
         <Contact />
         <Footer />
       </main>

@@ -14,12 +14,12 @@ const ScheduleHeader = styled.div`
 
 const SectionTitle = styled.h2`
   margin-bottom: 1rem;
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
 `;
 
 const ScheduleNote = styled.p`
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   font-style: italic;
   max-width: 100%;
   margin: 0 auto;

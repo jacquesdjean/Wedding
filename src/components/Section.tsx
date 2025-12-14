@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 interface SectionProps {
   id?: string;
-  background?: 'white' | 'cream' | 'sand' | 'sage';
+  background?: 'white' | 'cream' | 'sand' | 'navy';
   children: React.ReactNode;
   fullWidth?: boolean;
 }
@@ -16,8 +16,8 @@ const SectionWrapper = styled.section<{ $background: string }>`
         return theme.colors.cream;
       case 'sand':
         return theme.colors.sand;
-      case 'sage':
-        return theme.colors.lightSage;
+      case 'navy':
+        return theme.colors.navy;
       default:
         return theme.colors.white;
     }

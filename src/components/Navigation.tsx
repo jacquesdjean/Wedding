@@ -38,7 +38,7 @@ const Logo = styled.a<{ $scrolled: boolean }>`
   font-weight: ${({ theme }) => theme.fontWeights.light};
   letter-spacing: 0.1em;
   color: ${({ $scrolled, theme }) =>
-    $scrolled ? theme.colors.darkCharcoal : theme.colors.white};
+    $scrolled ? theme.colors.navy : theme.colors.white};
   text-decoration: none;
   transition: color ${({ theme }) => theme.transitions.fast};
   text-shadow: ${({ $scrolled }) => ($scrolled ? 'none' : '0 1px 10px rgba(0, 0, 0, 0.3)')};
@@ -54,7 +54,7 @@ const Logo = styled.a<{ $scrolled: boolean }>`
 
   @media (hover: hover) {
     &:hover {
-      color: ${({ theme }) => theme.colors.gold};
+      color: ${({ theme }) => theme.colors.yellow};
     }
   }
 
@@ -96,7 +96,7 @@ const NavLink = styled.a<{ $scrolled: boolean; $inMenu?: boolean }>`
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: ${({ $scrolled, $inMenu, theme }) =>
-    $scrolled || $inMenu ? theme.colors.charcoal : theme.colors.white};
+    $scrolled || $inMenu ? theme.colors.navy : theme.colors.white};
   text-decoration: none;
   transition: color ${({ theme }) => theme.transitions.fast};
   text-shadow: ${({ $scrolled, $inMenu }) =>
@@ -107,6 +107,19 @@ const NavLink = styled.a<{ $scrolled: boolean; $inMenu?: boolean }>`
   display: flex;
   align-items: center;
   padding: 0.75rem 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: ${({ theme }) => theme.colors.yellow};
+    transform: scaleX(0);
+    transition: transform ${({ theme }) => theme.transitions.fast};
+  }
 
   &:active {
     opacity: 0.8;
@@ -114,7 +127,11 @@ const NavLink = styled.a<{ $scrolled: boolean; $inMenu?: boolean }>`
 
   @media (hover: hover) {
     &:hover {
-      color: ${({ theme }) => theme.colors.gold};
+      color: ${({ theme }) => theme.colors.yellow};
+
+      &::after {
+        transform: scaleX(1);
+      }
     }
   }
 
@@ -150,14 +167,14 @@ const MenuButton = styled.button<{ $scrolled: boolean }>`
     width: 24px;
     height: 2px;
     background-color: ${({ $scrolled, theme }) =>
-      $scrolled ? theme.colors.charcoal : theme.colors.white};
+      $scrolled ? theme.colors.navy : theme.colors.white};
     transition: all ${({ theme }) => theme.transitions.fast};
   }
 `;
 
 const navItems = [
   { label: 'Welcome', href: '#welcome' },
-  { label: 'Schedule', href: '#schedule' },
+  { label: 'Weekend', href: '#schedule' },
   { label: 'Venues', href: '#venues' },
   { label: 'Travel', href: '#travel' },
   { label: 'Stay', href: '#lodging' },

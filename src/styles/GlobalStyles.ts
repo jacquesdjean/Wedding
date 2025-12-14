@@ -1,6 +1,20 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+  :root {
+    --color-navy: ${({ theme }) => theme.colors.navy};
+    --color-navy-dark: ${({ theme }) => theme.colors.navyDark};
+    --color-navy-light: ${({ theme }) => theme.colors.navyLight};
+    --color-yellow: ${({ theme }) => theme.colors.yellow};
+    --color-yellow-light: ${({ theme }) => theme.colors.yellowLight};
+    --color-yellow-muted: ${({ theme }) => theme.colors.yellowMuted};
+    --color-white: ${({ theme }) => theme.colors.white};
+    --color-cream: ${({ theme }) => theme.colors.cream};
+    --color-sand: ${({ theme }) => theme.colors.sand};
+    --color-charcoal: ${({ theme }) => theme.colors.charcoal};
+    --color-muted: ${({ theme }) => theme.colors.muted};
+  }
+
   *,
   *::before,
   *::after {
@@ -22,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.body};
     font-weight: ${({ theme }) => theme.fontWeights.normal};
     color: ${({ theme }) => theme.colors.charcoal};
-    background-color: ${({ theme }) => theme.colors.offWhite};
+    background-color: ${({ theme }) => theme.colors.cream};
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -36,7 +50,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.heading};
     font-weight: ${({ theme }) => theme.fontWeights.light};
     line-height: 1.2;
-    color: ${({ theme }) => theme.colors.darkCharcoal};
+    color: ${({ theme }) => theme.colors.navy};
   }
 
   /* Mobile-first typography - base styles are mobile */
@@ -90,20 +104,20 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: ${({ theme }) => theme.colors.sage};
+    color: ${({ theme }) => theme.colors.navy};
     text-decoration: none;
     transition: color ${({ theme }) => theme.transitions.fast};
     /* Remove tap highlight on mobile */
     -webkit-tap-highlight-color: transparent;
 
     &:active {
-      color: ${({ theme }) => theme.colors.sageDark};
+      color: ${({ theme }) => theme.colors.navyDark};
     }
 
     /* Only apply hover on devices that support it */
     @media (hover: hover) {
       &:hover {
-        color: ${({ theme }) => theme.colors.gold};
+        color: ${({ theme }) => theme.colors.yellow};
       }
     }
   }
@@ -129,13 +143,13 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Focus styles for accessibility */
   :focus-visible {
-    outline: 2px solid ${({ theme }) => theme.colors.sage};
+    outline: 2px solid ${({ theme }) => theme.colors.yellow};
     outline-offset: 2px;
   }
 
   ::selection {
-    background-color: ${({ theme }) => theme.colors.lightSage};
-    color: ${({ theme }) => theme.colors.darkCharcoal};
+    background-color: ${({ theme }) => theme.colors.yellowLight};
+    color: ${({ theme }) => theme.colors.navyDark};
   }
 
   /* Utility class for visually hidden but accessible text */

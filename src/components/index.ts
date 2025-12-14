@@ -11,5 +11,6 @@ export { AirportCard } from './AirportCard';
 export { DrivingRoute } from './DrivingRoute';
 export { Lodging } from './Lodging';
 export { LodgingCard } from './LodgingCard';
+export { Destination } from './Destination';
 export { Contact } from './Contact';
 export { Footer } from './Footer';

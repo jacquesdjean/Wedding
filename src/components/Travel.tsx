@@ -7,13 +7,13 @@ import { weddingConfig } from '../config/weddingConfig';
 const SectionTitle = styled.h2`
   text-align: center;
   margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
 `;
 
 const Subtitle = styled.h3`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 1rem;
   margin-top: 2rem;
   font-size: 1.25rem;
@@ -43,7 +43,7 @@ const AirportsGrid = styled.div`
 
 const Note = styled.p`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   font-style: italic;
   text-align: center;
 `;
@@ -63,7 +63,7 @@ const ShuttleSection = styled.div`
 const ShuttleTitle = styled.h4`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 1rem;
   font-size: 1.25rem;
 
@@ -74,7 +74,7 @@ const ShuttleTitle = styled.h4`
 
 const ShuttleInfo = styled.p`
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   margin-bottom: 1rem;
 `;
 
@@ -98,7 +98,7 @@ const ScheduleItem = styled.span`
 
 const ShuttleNote = styled.p`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.sage};
+  color: ${({ theme }) => theme.colors.navy};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
 `;
 
