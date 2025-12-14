@@ -29,7 +29,7 @@ const RouteWrapper = styled.div`
 const RouteTitle = styled.h4`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 1rem;
   font-size: 1.25rem;
 
@@ -40,13 +40,13 @@ const RouteTitle = styled.h4`
 
 const Intro = styled.p`
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   line-height: 1.7;
   margin-bottom: 1.5rem;
 `;
 
 const StopoverSection = styled.div`
-  background-color: ${({ theme }) => theme.colors.lightGold};
+  background-color: ${({ theme }) => theme.colors.yellowLight};
   border-radius: ${({ theme }) => theme.borderRadius.md};
   padding: 1rem;
   margin-bottom: 1.5rem;
@@ -60,13 +60,13 @@ const StopoverTitle = styled.h5`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 1.125rem;
   font-weight: ${({ theme }) => theme.fontWeights.normal};
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 0.5rem;
 `;
 
 const StopoverRec = styled.p`
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.gold};
+  color: ${({ theme }) => theme.colors.navyDark};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   margin-bottom: 0.25rem;
 `;
@@ -102,7 +102,7 @@ const DriveTimeItem = styled.div`
 const FromCity = styled.span`
   display: block;
   font-size: 0.75rem;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   margin-bottom: 0.25rem;
 
   ${({ theme }) => theme.media.tablet} {
@@ -114,7 +114,7 @@ const Time = styled.span`
   display: block;
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
 
   ${({ theme }) => theme.media.tablet} {
     font-size: 1.25rem;

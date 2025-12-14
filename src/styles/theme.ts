@@ -2,24 +2,23 @@ import { media, typography, spacing as responsiveSpacing } from './breakpoints';
 
 export const theme = {
   colors: {
-    white: '#FFFFFF',
-    offWhite: '#FAF9F7',
-    cream: '#F5F3EF',
-    sand: '#E8E0D5',
-    warmSand: '#D4C8B8',
-    sage: '#9CAF88',
-    sageDark: '#7A9168',
-    mutedSage: '#B8C4A8',
-    lightSage: '#E8EDE4',
-    gold: '#C9A962',
-    mutedGold: '#D4BE82',
-    lightGold: '#F5EED9',
-    charcoal: '#3D3D3D',
-    darkCharcoal: '#2A2A2A',
-    mediumGray: '#6B6B6B',
-    lightGray: '#9A9A9A',
-    overlay: 'rgba(0, 0, 0, 0.4)',
-    overlayLight: 'rgba(0, 0, 0, 0.2)',
+    // Primary - Navy
+    navy: '#1e3a5f',
+    navyDark: '#152a45',
+    navyLight: '#2d4a6f',
+    // Accent - Yellow
+    yellow: '#e8b923',
+    yellowLight: '#f5d56b',
+    yellowMuted: '#d4a91a',
+    // Neutrals
+    white: '#ffffff',
+    cream: '#faf8f5',
+    sand: '#e8e4de',
+    charcoal: '#2c2c2c',
+    muted: '#6b6b6b',
+    // Utility
+    overlay: 'rgba(30, 58, 95, 0.7)',
+    overlayLight: 'rgba(30, 58, 95, 0.5)',
   },
   fonts: {
     heading: "'Cormorant Garamond', 'Georgia', serif",

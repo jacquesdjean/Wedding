@@ -27,8 +27,8 @@ const FooterBackground = styled.div`
   bottom: 0;
   background: linear-gradient(
     to bottom,
-    ${({ theme }) => theme.colors.warmSand},
-    ${({ theme }) => theme.colors.sand}
+    ${({ theme }) => theme.colors.navy},
+    ${({ theme }) => theme.colors.navyDark}
   );
   z-index: 0;
 
@@ -54,7 +54,7 @@ const ImagePlaceholder = styled.div`
   justify-content: center;
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.sm};
-  color: ${({ theme }) => theme.colors.lightGray};
+  color: ${({ theme }) => theme.colors.muted};
   letter-spacing: 0.1em;
   text-transform: uppercase;
 `;
@@ -75,6 +75,7 @@ const ClosingText = styled.p`
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  color: ${({ theme }) => theme.colors.white};
   /* Mobile-first */
   font-size: 1.5rem;
 
@@ -92,7 +93,7 @@ const DateText = styled.p`
   font-weight: ${({ theme }) => theme.fontWeights.light};
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  opacity: 0.9;
+  color: ${({ theme }) => theme.colors.yellow};
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
   font-size: 1rem;
 

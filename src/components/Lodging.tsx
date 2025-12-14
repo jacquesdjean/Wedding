@@ -6,7 +6,7 @@ import { weddingConfig } from '../config/weddingConfig';
 const SectionTitle = styled.h2`
   text-align: center;
   margin-bottom: 2rem;
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
 
   ${({ theme }) => theme.media.tablet} {
     margin-bottom: 3rem;
@@ -29,7 +29,7 @@ const AlternativesSection = styled.div`
 const AlternativesTitle = styled.h3`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
   text-align: center;
   margin-bottom: 1rem;
   font-size: 1.25rem;
@@ -76,7 +76,7 @@ const AlternativeName = styled.span`
 
 const AlternativeType = styled.span`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   margin-left: 0.5rem;
 
   ${({ theme }) => theme.media.tablet} {
@@ -91,7 +91,7 @@ const AllLodgingLink = styled.a`
   text-align: center;
   margin-top: 2rem;
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.sage};
+  color: ${({ theme }) => theme.colors.navy};
   text-decoration: none;
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   -webkit-tap-highlight-color: transparent;
@@ -106,7 +106,7 @@ const AllLodgingLink = styled.a`
 
   @media (hover: hover) {
     &:hover {
-      color: ${({ theme }) => theme.colors.gold};
+      color: ${({ theme }) => theme.colors.yellow};
     }
   }
 `;

@@ -16,7 +16,7 @@ const WelcomeContent = styled.div`
 
 const SectionTitle = styled.h2`
   margin-bottom: 1rem;
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
 
   ${({ theme }) => theme.media.tablet} {
     margin-bottom: 1.5rem;
@@ -27,7 +27,7 @@ const WelcomeText = styled.p`
   /* Mobile-first: base size */
   font-size: 1rem;
   line-height: 1.8;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
 
   ${({ theme }) => theme.media.tablet} {
     font-size: 1.125rem;
@@ -52,14 +52,14 @@ const GalleryImage = styled.div`
   background: linear-gradient(
     135deg,
     ${({ theme }) => theme.colors.sand} 0%,
-    ${({ theme }) => theme.colors.warmSand} 100%
+    ${({ theme }) => theme.colors.cream} 100%
   );
   border-radius: ${({ theme }) => theme.borderRadius.md};
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: ${({ theme }) => theme.fontSizes.sm};
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   letter-spacing: 0.1em;
   overflow: hidden;
 

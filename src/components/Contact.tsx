@@ -14,12 +14,12 @@ const ContactContent = styled.div`
 
 const SectionTitle = styled.h2`
   margin-bottom: 1rem;
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
 `;
 
 const Intro = styled.p`
   font-size: 1.125rem;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   margin-bottom: 1.5rem;
   line-height: 1.7;
 
@@ -34,7 +34,7 @@ const EmailLink = styled.a`
   justify-content: center;
   gap: 0.5rem;
   padding: 1rem 2rem;
-  background-color: ${({ theme }) => theme.colors.sage};
+  background-color: ${({ theme }) => theme.colors.navy};
   color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
   border-radius: ${({ theme }) => theme.borderRadius.md};
@@ -52,14 +52,14 @@ const EmailLink = styled.a`
 
   @media (hover: hover) {
     &:hover {
-      background-color: ${({ theme }) => theme.colors.sageDark};
+      background-color: ${({ theme }) => theme.colors.navyDark};
     }
   }
 `;
 
 const DeclineNote = styled.p`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.lightGray};
+  color: ${({ theme }) => theme.colors.muted};
   font-style: italic;
   max-width: 100%;
   margin: 0 auto;

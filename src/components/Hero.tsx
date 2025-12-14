@@ -23,8 +23,8 @@ const HeroBackground = styled.div`
   bottom: 0;
   background: linear-gradient(
     to bottom,
-    ${({ theme }) => theme.colors.warmSand},
-    ${({ theme }) => theme.colors.sand}
+    ${({ theme }) => theme.colors.navy},
+    ${({ theme }) => theme.colors.navyDark}
   );
   z-index: 0;
 
@@ -50,7 +50,7 @@ const ImagePlaceholder = styled.div`
   justify-content: center;
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.sm};
-  color: ${({ theme }) => theme.colors.lightGray};
+  color: ${({ theme }) => theme.colors.muted};
   letter-spacing: 0.1em;
   text-transform: uppercase;
 `;
@@ -88,7 +88,7 @@ const DateLocation = styled.p`
   font-weight: ${({ theme }) => theme.fontWeights.light};
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  opacity: 0.95;
+  color: ${({ theme }) => theme.colors.yellowLight};
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
   /* Mobile-first */
   font-size: 1rem;
@@ -115,6 +115,7 @@ const ScrollIndicator = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
   opacity: 0.8;
+  color: ${({ theme }) => theme.colors.yellow};
   /* CSS animation - better performance */
   animation: bounce 2s infinite;
 
@@ -144,8 +145,8 @@ const ScrollText = styled.span`
 const ScrollArrow = styled.div`
   width: 20px;
   height: 20px;
-  border-right: 2px solid ${({ theme }) => theme.colors.white};
-  border-bottom: 2px solid ${({ theme }) => theme.colors.white};
+  border-right: 2px solid ${({ theme }) => theme.colors.yellow};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.yellow};
   transform: rotate(45deg);
   opacity: 0.8;
 `;

@@ -17,7 +17,7 @@ const Card = styled.div<{ $recommended: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius.md};
   padding: 1rem;
   border: ${({ $recommended, theme }) =>
-    $recommended ? `2px solid ${theme.colors.sage}` : `1px solid ${theme.colors.sand}`};
+    $recommended ? `2px solid ${theme.colors.navy}` : `1px solid ${theme.colors.sand}`};
   position: relative;
 
   ${({ theme }) => theme.media.tablet} {
@@ -31,20 +31,21 @@ const RecommendedBadge = styled.span`
   position: absolute;
   top: -10px;
   right: 1rem;
-  background-color: ${({ theme }) => theme.colors.sage};
-  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.navyDark};
   font-size: 0.75rem;
   padding: 0.25rem 0.5rem;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
 `;
 
 const AirportCode = styled.span`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 1.5rem;
   font-weight: ${({ theme }) => theme.fontWeights.medium};
-  color: ${({ theme }) => theme.colors.sage};
+  color: ${({ theme }) => theme.colors.navy};
   min-width: 60px;
 
   ${({ theme }) => theme.media.tablet} {
@@ -66,7 +67,7 @@ const AirportName = styled.span`
 
 const TravelInfo = styled.span`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   margin-top: 0.25rem;
 `;
 

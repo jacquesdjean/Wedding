@@ -16,7 +16,7 @@ const Card = styled.div<{ $isPrimary: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   padding: 1.5rem;
   border: ${({ $isPrimary, theme }) =>
-    $isPrimary ? `2px solid ${theme.colors.gold}` : `1px solid ${theme.colors.sand}`};
+    $isPrimary ? `2px solid ${theme.colors.yellow}` : `1px solid ${theme.colors.sand}`};
   position: relative;
 
   ${({ theme }) => theme.media.tablet} {
@@ -28,8 +28,8 @@ const PrimaryBadge = styled.span`
   position: absolute;
   top: -12px;
   left: 1.5rem;
-  background-color: ${({ theme }) => theme.colors.gold};
-  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.navyDark};
   font-size: 0.75rem;
   padding: 0.25rem 0.75rem;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
@@ -41,7 +41,7 @@ const PrimaryBadge = styled.span`
 const LodgingName = styled.h4`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
-  color: ${({ theme }) => theme.colors.darkCharcoal};
+  color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 0.5rem;
   font-size: 1.25rem;
 
@@ -52,16 +52,16 @@ const LodgingName = styled.h4`
 
 const LodgingType = styled.span`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   display: block;
   margin-bottom: 1rem;
 `;
 
 const RoomBlockNote = styled.p`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.gold};
+  color: ${({ theme }) => theme.colors.navyDark};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
-  background-color: ${({ theme }) => theme.colors.lightGold};
+  background-color: ${({ theme }) => theme.colors.yellowLight};
   padding: 1rem;
   border-radius: ${({ theme }) => theme.borderRadius.md};
   margin-bottom: 1rem;
@@ -72,7 +72,7 @@ const PhoneLink = styled.a`
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background-color: ${({ theme }) => theme.colors.sage};
+  background-color: ${({ theme }) => theme.colors.navy};
   color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.borderRadius.md};
   text-decoration: none;
@@ -89,7 +89,7 @@ const PhoneLink = styled.a`
 
   @media (hover: hover) {
     &:hover {
-      background-color: ${({ theme }) => theme.colors.sageDark};
+      background-color: ${({ theme }) => theme.colors.navyDark};
     }
   }
 `;
@@ -106,7 +106,7 @@ const ContactItem = styled.p`
   margin: 0;
 
   a {
-    color: ${({ theme }) => theme.colors.sage};
+    color: ${({ theme }) => theme.colors.navy};
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 
@@ -116,7 +116,7 @@ const ContactItem = styled.p`
 
     @media (hover: hover) {
       &:hover {
-        color: ${({ theme }) => theme.colors.gold};
+        color: ${({ theme }) => theme.colors.yellow};
       }
     }
   }
@@ -125,8 +125,8 @@ const ContactItem = styled.p`
 const WalkableBadge = styled.span`
   display: inline-block;
   font-size: 0.75rem;
-  color: ${({ theme }) => theme.colors.sage};
-  background-color: ${({ theme }) => theme.colors.lightSage};
+  color: ${({ theme }) => theme.colors.navyDark};
+  background-color: ${({ theme }) => theme.colors.yellowLight};
   padding: 0.25rem 0.5rem;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   margin-top: 1rem;

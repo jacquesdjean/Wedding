@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface VenueCardProps {
   name: string;
+  role?: string;
   description: string;
   address?: string;
   phone?: string;
@@ -35,13 +36,13 @@ const ImageContainer = styled.div`
   background: linear-gradient(
     135deg,
     ${({ theme }) => theme.colors.sand} 0%,
-    ${({ theme }) => theme.colors.warmSand} 100%
+    ${({ theme }) => theme.colors.cream} 100%
   );
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: ${({ theme }) => theme.fontSizes.sm};
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   letter-spacing: 0.1em;
 
   ${({ theme }) => theme.media.tablet} {
@@ -66,20 +67,31 @@ const Content = styled.div`
 const VenueName = styled.h3`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
-  color: ${({ theme }) => theme.colors.darkCharcoal};
-  margin-bottom: 0.5rem;
+  color: ${({ theme }) => theme.colors.navy};
+  margin-bottom: 0.25rem;
   /* Mobile-first */
   font-size: 1.25rem;
 
   ${({ theme }) => theme.media.tablet} {
     font-size: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
   }
+`;
+
+const VenueRole = styled.span`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: 0.875rem;
+  color: ${({ theme }) => theme.colors.yellow};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  display: block;
 `;
 
 const Description = styled.p`
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   line-height: 1.7;
   margin-bottom: 0.75rem;
 `;
@@ -97,7 +109,7 @@ const DetailItem = styled.p`
   margin: 0;
 
   a {
-    color: ${({ theme }) => theme.colors.sage};
+    color: ${({ theme }) => theme.colors.navy};
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 
@@ -107,7 +119,7 @@ const DetailItem = styled.p`
 
     @media (hover: hover) {
       &:hover {
-        color: ${({ theme }) => theme.colors.gold};
+        color: ${({ theme }) => theme.colors.yellow};
       }
     }
   }
@@ -118,7 +130,7 @@ const PhoneLink = styled.a`
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
-  background-color: ${({ theme }) => theme.colors.sage};
+  background-color: ${({ theme }) => theme.colors.navy};
   color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.borderRadius.md};
   text-decoration: none;
@@ -136,13 +148,13 @@ const PhoneLink = styled.a`
 
   @media (hover: hover) {
     &:hover {
-      background-color: ${({ theme }) => theme.colors.sageDark};
+      background-color: ${({ theme }) => theme.colors.navyDark};
     }
   }
 `;
 
 const NotesList = styled.ul`
-  background-color: ${({ theme }) => theme.colors.lightSage};
+  background-color: ${({ theme }) => theme.colors.cream};
   padding: 1rem;
   border-radius: ${({ theme }) => theme.borderRadius.md};
   margin-top: 0.75rem;
@@ -164,15 +176,15 @@ const NoteItem = styled.li`
     content: '•';
     position: absolute;
     left: 0;
-    color: ${({ theme }) => theme.colors.sage};
+    color: ${({ theme }) => theme.colors.navy};
   }
 `;
 
 const RoomBlockNote = styled.p`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.gold};
+  color: ${({ theme }) => theme.colors.navyDark};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
-  background-color: ${({ theme }) => theme.colors.lightGold};
+  background-color: ${({ theme }) => theme.colors.yellowLight};
   padding: 1rem;
   border-radius: ${({ theme }) => theme.borderRadius.md};
   margin-top: 0.75rem;
@@ -180,13 +192,14 @@ const RoomBlockNote = styled.p`
 
 const AdditionalNote = styled.p`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.mediumGray};
+  color: ${({ theme }) => theme.colors.muted};
   font-style: italic;
   margin-top: 0.75rem;
 `;
 
 export const VenueCard: React.FC<VenueCardProps> = ({
   name,
+  role,
   description,
   address,
   phone,
@@ -202,6 +215,7 @@ export const VenueCard: React.FC<VenueCardProps> = ({
       <ImageContainer>[{image}]</ImageContainer>
       <Content>
         <VenueName>{name}</VenueName>
+        {role && <VenueRole>{role}</VenueRole>}
         <Description>{description}</Description>
         {(address || website) && (
           <Details>
