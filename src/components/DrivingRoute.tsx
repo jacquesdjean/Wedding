@@ -32,6 +32,7 @@ const RouteTitle = styled.h4`
   color: ${({ theme }) => theme.colors.navy};
   margin-bottom: 1rem;
   font-size: 1.25rem;
+  text-align: center;
 
   ${({ theme }) => theme.media.tablet} {
     font-size: 1.5rem;

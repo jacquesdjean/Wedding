@@ -28,16 +28,19 @@ const Card = styled.div<{ $recommended: boolean }>`
 
 const RecommendedBadge = styled.span`
   position: absolute;
-  top: 0.5rem;
+  top: -10px;
   right: 0.75rem;
-  color: ${({ theme }) => theme.colors.navy};
+  background-color: ${({ theme }) => theme.colors.navy};
+  color: ${({ theme }) => theme.colors.white};
   font-size: 0.625rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: ${({ theme }) => theme.fontWeights.medium};
+  padding: 0.25rem 0.5rem;
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
 
   ${({ theme }) => theme.media.tablet} {
-    top: 0.75rem;
+    top: -10px;
     right: 1rem;
     font-size: 0.6875rem;
   }
