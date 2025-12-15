@@ -17,6 +17,7 @@ const Subtitle = styled.h3`
   margin-bottom: 1rem;
   margin-top: 2rem;
   font-size: 1.25rem;
+  text-align: center;
 
   &:first-of-type {
     margin-top: 0;
@@ -28,11 +29,18 @@ const Subtitle = styled.h3`
 `;
 
 const AirportsGrid = styled.div`
-  /* Mobile-first: stacked */
+  /* Mobile-first: stacked and centered */
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
+
+  /* Make cards full width within centered container */
+  > * {
+    width: 100%;
+    max-width: 400px;
+  }
 
   ${({ theme }) => theme.media.tablet} {
     display: grid;
@@ -40,6 +48,11 @@ const AirportsGrid = styled.div`
     gap: 1.5rem;
     max-width: 600px;
     margin: 0 auto 1rem;
+
+    > * {
+      width: auto;
+      max-width: none;
+    }
   }
 `;
 
@@ -56,6 +69,8 @@ const ShuttleSection = styled.div`
   padding: 1.5rem;
   margin-top: 2rem;
   text-align: center;
+  overflow: hidden;
+  position: relative;
 
   ${({ theme }) => theme.media.tablet} {
     padding: 2rem;
