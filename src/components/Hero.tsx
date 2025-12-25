@@ -27,28 +27,28 @@ const HeroBackground = styled.div<HeroBackgroundProps>`
   bottom: 0;
   background-image: url(${({ $imageUrl }) => $imageUrl});
   /* Zoom out to show more of the image */
-  background-size: 120% auto;
-  /* Mobile-first: shift further LEFT (lower % = more left visible) */
-  background-position: 20% center;
+  background-size: 140% auto;
+  /* Mobile-first: shift to show LEFT side (Jacques) */
+  background-position: 0% center;
   background-repeat: no-repeat;
   z-index: 0;
 
-  /* iPhone SE and very small phones - even more left */
+  /* iPhone SE and very small phones */
   @media (max-width: 375px) {
-    background-size: 130% auto;
-    background-position: 15% center;
+    background-size: 150% auto;
+    background-position: 0% center;
   }
 
   /* iPhone 12/13/14 standard */
   @media (min-width: 376px) and (max-width: 430px) {
-    background-size: 125% auto;
-    background-position: 18% center;
+    background-size: 145% auto;
+    background-position: 0% center;
   }
 
   /* Larger phones / phablets */
   @media (min-width: 431px) and (max-width: 767px) {
-    background-size: 115% auto;
-    background-position: 25% center;
+    background-size: 130% auto;
+    background-position: 5% center;
   }
 
   ${({ theme }) => theme.media.tablet} {
