@@ -473,6 +473,8 @@ export const PasswordGate: React.FC<PasswordGateProps> = ({ children }) => {
   useEffect(() => {
     if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
       setShowContent(true);
+      // Ensure we start at the top
+      window.scrollTo(0, 0);
     }
   }, []);
 
@@ -491,6 +493,8 @@ export const PasswordGate: React.FC<PasswordGateProps> = ({ children }) => {
 
       setTimeout(() => {
         setShowContent(true);
+        // Scroll to top when revealing content
+        window.scrollTo(0, 0);
       }, 2800);
     } else {
       setHasError(true);
